@@ -1,0 +1,7 @@
+[Unit]
+Description=Delete screenshots older than 3 days
+
+[Service]
+Type=oneshot
+User=tabris
+ExecStart=/home/tabris/screenshot-bot/cleanup.sh
