@@ -1,0 +1,16 @@
+[Unit]
+Description=Personal Assistant Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=tabris
+WorkingDirectory=/home/tabris/assistant-bot
+ExecStart=/home/tabris/assistant-bot/venv/bin/python3 bot.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
