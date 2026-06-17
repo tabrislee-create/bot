@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=tabris
-WorkingDirectory=/home/tabris/screenshot-bot
-ExecStart=/home/tabris/screenshot-bot/venv/bin/python3 bot.py
+WorkingDirectory=/home/tabris/bots/screenshot-bot
+ExecStart=/home/tabris/bots/screenshot-bot/venv/bin/python3 bot.py
 Restart=on-failure
 RestartSec=10
 
