@@ -1,0 +1,14 @@
+[Unit]
+Description=Screenshot Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=tabris
+WorkingDirectory=/home/tabris/screenshot-bot
+ExecStart=/home/tabris/screenshot-bot/venv/bin/python3 bot.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
