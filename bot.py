@@ -106,6 +106,19 @@ async def cmd_coffees(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
         )
     await update.message.reply_text("\n".join(lines))
 
+
+async def cmd_help(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    if not is_allowed(update):
+        return
+    text = (
+        "🤖 個人助理指令列表\n\n"
+        "/start — 開始使用\n"
+        "/list — 查看待辦事項\n"
+        "/today — 今日行程\n"
+        "/coffees — 最近咖啡記錄\n"
+        "/help — 顯示此說明"
+    )
+    await update.message.reply_text(text)
 # ── 刪除按鈕回呼 ───────────────────────────────────
 async def callback_delete(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -250,6 +263,7 @@ def main():
     app.add_handler(CommandHandler("list", cmd_list))
     app.add_handler(CommandHandler("today", cmd_today))
     app.add_handler(CommandHandler("coffees", cmd_coffees))
+    app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CallbackQueryHandler(callback_delete, pattern=r"^del:"))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     async def post_init(application):
@@ -259,3 +273,4 @@ def main():
     app.run_polling(drop_pending_updates=True)
 if __name__ == "__main__":
     main()
+# /help handler 已在下方 main() 前加入，這裡只是標記
