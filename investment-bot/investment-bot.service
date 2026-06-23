@@ -1,0 +1,14 @@
+[Unit]
+Description=Investment Bot (Telegram)
+After=network.target
+
+[Service]
+Type=simple
+User=tabris
+WorkingDirectory=/home/tabris/bots/investment-bot
+ExecStart=/home/tabris/bots/investment-bot/venv/bin/python3 bot.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
